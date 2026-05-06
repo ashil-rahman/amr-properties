@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    background-color: #fbf9f9;
+    color: #1b1c1c;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-serif  { font-family: var(--font-serif),  Georgia, serif; }
+  .font-sans   { font-family: var(--font-sans), system-ui, sans-serif; }
+
+  /* hairline border helpers */
+  .hairline     { border-color: rgba(27,28,28,0.08); }
+  .hairline-t   { border-top:    1px solid rgba(27,28,28,0.08); }
+  .hairline-b   { border-bottom: 1px solid rgba(27,28,28,0.08); }
+
+  /* frosted glass */
+  .glass {
+    background: rgba(251,249,249,0.65);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* nav gold underline */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: #C9A84C;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after { width: 100%; }
+
+  /* card hover */
+  .card-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+  }
+
+  /* label overline */
+  .label-caps {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+}

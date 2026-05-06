@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#cac6c4",
+                    "on-error": "#ffffff",
+                    "tertiary": "#000000",
+                    "on-tertiary-fixed-variant": "#484645",
+                    "surface-container-low": "#f5f3f3",
+                    "surface-container-highest": "#e3e2e2",
+                    "on-primary-fixed": "#1c1b1b",
+                    "surface-container-high": "#e9e8e7",
+                    "surface-dim": "#dbdad9",
+                    "tertiary-container": "#1c1b1a",
+                    "on-primary-fixed-variant": "#474746",
+                    "on-tertiary-container": "#868382",
+                    "on-surface-variant": "#444748",
+                    "on-tertiary": "#ffffff",
+                    "on-background": "#1b1c1c",
+                    "outline": "#747878",
+                    "secondary-container": "#e2e3e1",
+                    "background": "#fbf9f9",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-surface": "#1b1c1c",
+                    "inverse-primary": "#c8c6c5",
+                    "secondary-fixed-dim": "#c6c7c5",
+                    "inverse-surface": "#303031",
+                    "on-tertiary-fixed": "#1c1b1a",
+                    "inverse-on-surface": "#f2f0f0",
+                    "error": "#ba1a1a",
+                    "primary": "#000000",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#efeded",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#454746",
+                    "tertiary-fixed": "#e6e2df",
+                    "primary-container": "#1c1b1b",
+                    "surface-bright": "#fbf9f9",
+                    "on-primary-container": "#858383",
+                    "secondary": "#5d5f5d",
+                    "on-secondary-container": "#636563",
+                    "surface": "#fbf9f9",
+                    "on-secondary-fixed": "#1a1c1b",
+                    "surface-variant": "#e3e2e2",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#e2e3e1",
+                    "primary-fixed": "#e5e2e1",
+                    "surface-tint": "#5f5e5e",
+                    "outline-variant": "#c4c7c7"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-page": "80px",
+                    "unit": "4px",
+                    "section-gap": "160px",
+                    "gutter": "24px",
+                    "container-max": "1440px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "display-xl": ["Noto Serif"],
+                    "label-caps": ["Plus Jakarta Sans"],
+                    "headline-lg": ["Noto Serif"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Noto Serif"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.7", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e3e2e2; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl dark:bg-surface-container/60 border-b border-on-surface/10 h-20 flex justify-between items-center px-margin-page">
+<div class="flex items-center">
+<h1 class="font-display-xl text-headline-md tracking-tighter text-primary dark:text-on-surface">AETERNA</h1>
+</div>
+<nav class="hidden md:flex items-center gap-12">
+<a class="font-body-md text-body-md tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Portfolio</a>
+<a class="font-body-md text-body-md tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">Narratives</a>
+<a class="font-body-md text-body-md tracking-wider text-primary font-semibold border-b border-primary pb-1" href="#">The Collection</a>
+<a class="font-body-md text-body-md tracking-wider text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="font-label-caps text-label-caps tracking-widest text-primary hover:opacity-80 transition-opacity uppercase">Inquire</button>
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Suppressed for Hero Focus as per Relevance Check, but logic preserved in CSS if needed) -->
+<main>
+<!-- Hero Section: Split Desktop Layout -->
+<section class="min-h-screen flex flex-col md:flex-row pt-20">
+<!-- Left Side: Content Box -->
+<div class="w-full md:w-5/12 flex flex-col justify-center px-margin-page py-20 bg-background relative">
+<div class="max-w-xl space-y-12">
+<div class="space-y-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.3em] uppercase block">Premier Residences</span>
+<h2 class="font-display-xl text-[64px] leading-[1.1] text-primary">Real Estate in Dubai: Ideal for Living and Investing</h2>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed max-w-md">
+                        Discover a curated portfolio of the Emirate's most distinguished architectural landmarks, where heritage meets the future of luxury living.
+                    </p>
+<div class="pt-8 flex items-center gap-12">
+<button class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps tracking-widest uppercase rounded-DEFAULT hover:opacity-90 active:scale-[0.99] transition-all duration-300">
+                            Inquire Now
+                        </button>
+<a class="group flex items-center gap-3 font-label-caps text-label-caps tracking-widest uppercase text-on-surface" href="#">
+                            View Insights
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Subtle Decorative Hairline -->
+<div class="absolute bottom-12 left-margin-page right-0 border-b border-on-surface/5"></div>
+</div>
+<!-- Right Side: Architectural Photograph -->
+<div class="w-full md:w-7/12 relative min-h-[500px] md:min-h-screen overflow-hidden">
+<img alt="Dubai Luxury Architecture" class="absolute inset-0 w-full h-full object-cover" data-alt="A breathtaking, cinematic photograph of a contemporary glass and concrete villa situated on the Dubai waterfront at dusk. The warm golden hour light reflects off the calm Persian Gulf, casting a soft, opulent glow across the structure's clean lines. The composition is professional and editorial, emphasizing the luxury of space and the harmony between high-end architecture and the surrounding desert landscape. Soft amber and deep charcoal tones dominate the palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvXqvStoG1frmF8Ubk3bBDtdRgAuAYCIe5LuqBqXEWIUgBkBUtwA-NTly6xDp5sY3PumfLlEgUJxBnmh8WwU882eqvk9NEt54iqnp-NzIgTECSK0iYzmp8jxmrJlptVXFH5mos7Mmgn4kf5pPKlK00H_4oQVXq-xfxwkjI4vANl1Fm__5DpuTuG-ums8_hkz6a86Sg9H3jOLT9cmeXy-3NZEz2gJUrEF114gyYf_sMBm6NQcE9SysKsEUr2QJgIkIV4_a8WqY"/>
+<!-- Glassmorphic Location Tag -->
+<div class="absolute bottom-12 right-12 bg-surface/30 backdrop-blur-md border border-on-surface/10 px-6 py-4 flex flex-col">
+<span class="font-label-caps text-[10px] tracking-[0.2em] text-on-primary uppercase opacity-80">Location</span>
+<span class="font-body-md text-on-primary font-semibold tracking-wider">Palm Jumeirah, Dubai</span>
+</div>
+</div>
+</section>
+<!-- Brief Narrative Section to establish Editorial Pacing -->
+<section class="bg-background py-section-gap px-margin-page">
+<div class="grid grid-cols-12 gap-gutter items-center">
+<div class="col-span-12 md:col-span-4 space-y-8">
+<h3 class="font-headline-lg text-headline-lg text-primary">The Art of Living</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">We treat every transaction as the acquisition of a legacy. AETERNA specializes in properties that define horizons and set new benchmarks for residential excellence.</p>
+</div>
+<div class="col-span-12 md:col-span-7 md:col-start-6">
+<div class="grid grid-cols-2 gap-gutter">
+<div class="space-y-4">
+<img class="w-full aspect-[3/4] object-cover" data-alt="An interior shot of an ultra-minimalist living space in a Dubai penthouse, featuring oversized floor-to-ceiling windows. The furniture is sparse and curated, consisting of neutral-toned fabrics and high-end finishes. The evening light is diffuse and soft, highlighting the high-key, airy luxury aesthetic. The mood is tranquil and sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvrAeJEjjDGIPD9aoPCMFB37ZinEHWCalFL7cY6etM7KZMYkmYzyqco32ncNsXCsRnOr9rQeWJjWPN37Z-wxYac4T5j5L9BYv9kTyqVjjJZKf557C_OSIT0wv8Pe8M7ckXqdUAZacjCBvkP5bXGoCnzoZOUZKCgpECE0wmNN9XpTJDe3Apz1vvI9229DVcUH5piJtMIc560lULJnn5wCcFQ2f7bUQAbkUV612O526rjRjgK_lZyxKhfQkZmCBToNM99hZU_MU"/>
+<p class="font-label-caps text-label-caps text-on-surface-variant">CURATED INTERIORS</p>
+</div>
+<div class="space-y-4 mt-20">
+<img class="w-full aspect-[3/4] object-cover" data-alt="A detailed, close-up architectural photograph showing refined structural precision of a premium residential project. The lighting is warm and inviting, casting geometric shadows that emphasize the clean lines and material quality. The palette is dominated by warm limestone and bronze accents, embodying editorial minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBH8J9ZvQvnN_VR1sq9ZxMzMP7MwgQXb7movkLwV1wXFkBVJgHHn8gl4JsogFHo3zhchuefr579ZkiqPzgMt17vRdTe95v8sM_q2siL7Nnv2dnm6fWK-_yZvooD-7jvBYg4RVGBAFsij0Zx-rcMBwNeeslGOzMGzj1qmiR8nMLCX2tCw4trNzV7H2n-UJFG2VKjOeTwEkf1X6ud9xRYvg1M0jvjVN5jn3AUiviK95J2kEq8MfNIG3OL2b7fVUzaXjArVD82ZfA"/>
+<p class="font-label-caps text-label-caps text-on-surface-variant">STRUCTURAL PRECISION</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-section-gap border-t border-on-surface/10 bg-surface dark:bg-surface-container-highest">
+<div class="grid grid-cols-12 px-margin-page py-20 gap-gutter">
+<div class="col-span-12 md:col-span-6 lg:col-span-4 space-y-8">
+<h2 class="font-display-xl text-headline-lg text-primary dark:text-on-surface">AETERNA</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Crafting legacies through architectural excellence and unparalleled real estate advisory in the world's most vibrant markets.</p>
+</div>
+<div class="col-span-6 md:col-span-3 lg:col-span-2 space-y-6">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Navigation</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">The Collection</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Insights</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Architecture</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Investment</a></li>
+</ul>
+</div>
+<div class="col-span-6 md:col-span-3 lg:col-span-2 space-y-6">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Company</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">About Us</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Press Kit</a></li>
+<li><a class="font-body-md text-body-md text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div class="col-span-12 lg:col-span-4 space-y-6 lg:text-right">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Newsletter</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Join our private list for off-market opportunities.</p>
+<div class="flex border-b border-on-surface/20 py-2">
+<input class="bg-transparent border-none outline-none flex-grow font-body-md text-body-md placeholder:text-on-surface-variant/50 focus:ring-0" placeholder="Email Address" type="email"/>
+<button class="material-symbols-outlined text-primary">arrow_forward</button>
+</div>
+</div>
+<div class="col-span-12 pt-20 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-on-surface/5 mt-12">
+<p class="font-label-caps text-[10px] text-on-surface-variant tracking-widest">© 2024 AETERNA LIFESTYLE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="font-label-caps text-[10px] text-on-surface-variant tracking-widest hover:text-primary" href="#">PRIVACY POLICY</a>
+<a class="font-label-caps text-[10px] text-on-surface-variant tracking-widest hover:text-primary" href="#">TERMS OF SERVICE</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
