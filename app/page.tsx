@@ -7,7 +7,6 @@ import FadeUp from '@/components/FadeUp'
 import ParallaxImage from '@/components/ParallaxImage'
 import {
   fadeUp,
-  fadeRight,
   scaleIn,
   staggerContainer,
   staggerGrid,
@@ -17,12 +16,48 @@ import {
 
 /* ── data ───────────────────────────────────────────────────── */
 const advantages = [
-  { n: '01', title: 'Prime Location',         body: "Al Quoz — Dubai's industrial hub — with direct motorway access to every major project site." },
-  { n: '02', title: 'MOHRE Compliance',        body: 'Every unit, corridor, and facility meets Ministry of Human Resources & Emiratisation standards.' },
-  { n: '03', title: 'Stable Occupancy',        body: 'A 94%+ average occupancy rate across six years reflects the trust contractors place in us.' },
-  { n: '04', title: 'Flexible Configurations', body: 'Room types from 2 to 5 beds let you scale headcount without renegotiating long-term contracts.' },
-  { n: '05', title: '24/7 Support',            body: 'On-site management, security, and maintenance around the clock — your HR desk stays clear.' },
-  { n: '06', title: 'Full-Service Compound',   body: 'Catering, store, saloon, CCTV — every essential on-site, keeping your workforce focused.' },
+  {
+    n: '01',
+    title: 'Prime Location',
+    body: "Al Quoz — Dubai's industrial hub — with direct motorway access to every major project site.",
+    image: '/images/building-front.jpg',
+    alt: 'AMR Properties compound exterior in Al Quoz Dubai',
+  },
+  {
+    n: '02',
+    title: 'MOHRE Compliance',
+    body: 'Every unit, corridor, and facility meets Ministry of Human Resources & Emiratisation standards.',
+    image: '/images/fire-safety.jpg',
+    alt: 'AMR Properties fire safety and MOHRE compliance',
+  },
+  {
+    n: '03',
+    title: 'Stable Occupancy',
+    body: 'A 94%+ average occupancy rate across six years reflects the trust contractors place in us.',
+    image: '/images/hero-exterior.jpg',
+    alt: 'AMR Properties building exterior Al Quoz',
+  },
+  {
+    n: '04',
+    title: 'Flexible Configurations',
+    body: 'Room types from 2 to 5 beds let you scale headcount without renegotiating long-term contracts.',
+    image: '/images/room-2.jpg',
+    alt: 'AMR Properties flexible room configurations',
+  },
+  {
+    n: '05',
+    title: '24/7 Support',
+    body: 'On-site management, security, and maintenance around the clock — your HR desk stays clear.',
+    image: '/images/corridor.jpg',
+    alt: 'AMR Properties 24/7 monitored corridor',
+  },
+  {
+    n: '06',
+    title: 'Full-Service Compound',
+    body: 'Catering, store, saloon, CCTV — every essential on-site, keeping your workforce focused.',
+    image: '/images/dining-hall.jpg',
+    alt: 'AMR Properties dining hall full service',
+  },
 ]
 
 const metrics = [
@@ -32,7 +67,6 @@ const metrics = [
   { value: '6+',    label: 'Years Operating' },
 ]
 
-/* ── shared button motion props ─────────────────────────────── */
 const btnHover = { scale: 1.04, transition: { duration: 0.22, ease: EASE_OUT_EXPO } }
 const btnTap   = { scale: 0.97 }
 
@@ -42,28 +76,22 @@ export default function Home() {
       {/* ══ HERO ════════════════════════════════════════════════ */}
       <section className="min-h-screen flex flex-col md:flex-row pt-20 overflow-hidden">
 
-        {/* Left — text content */}
+        {/* Left — text */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
           className="w-full md:w-5/12 flex flex-col justify-center
                      px-5 sm:px-10 lg:px-page
-                     py-16 sm:py-24 bg-surface relative z-10"
+                     py-12 sm:py-20 bg-surface relative z-10"
         >
-          <div className="max-w-lg space-y-10">
-
-            {/* Eyebrow */}
+          <div className="max-w-lg space-y-8">
             <motion.div variants={fadeUp} className="overflow-hidden">
-              <motion.span
-                className="label-caps text-on-surface-variant block"
-                variants={fadeUp}
-              >
+              <motion.span className="label-caps text-on-surface-variant block" variants={fadeUp}>
                 Al Quoz, Dubai — Est. 2018
               </motion.span>
             </motion.div>
 
-            {/* Headline */}
             <motion.div variants={staggerContainer} className="space-y-2">
               {["Where Dubai's", 'Workforce', 'Calls Home'].map((line) => (
                 <div key={line} className="overflow-hidden">
@@ -77,13 +105,11 @@ export default function Home() {
               ))}
             </motion.div>
 
-            {/* Divider line */}
             <motion.div
               variants={lineReveal}
               className="h-px bg-on-surface/12 w-full origin-left"
             />
 
-            {/* Body */}
             <motion.p
               variants={fadeUp}
               className="font-sans text-body-lg text-on-surface-variant leading-relaxed max-w-sm"
@@ -91,12 +117,11 @@ export default function Home() {
               MOHRE-compliant staff accommodation and labour camps for Dubai&apos;s leading contractors. 3,390 beds, full facilities, 24/7 support.
             </motion.p>
 
-            {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start sm:items-center gap-5 pt-1">
               <motion.div whileHover={btnHover} whileTap={btnTap}>
                 <Link
                   href="/contact"
-                  className="bg-on-surface text-surface px-10 py-4 label-caps hover:opacity-85 inline-block transition-opacity"
+                  className="bg-on-surface text-surface px-8 sm:px-10 py-4 label-caps hover:opacity-85 inline-block transition-opacity"
                   style={{ boxShadow: '0 4px 24px rgba(27,28,28,0.12)' }}
                 >
                   Get a Quote
@@ -105,24 +130,21 @@ export default function Home() {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <Link
                   href="/rooms"
-                  className="group flex items-center gap-2 label-caps text-on-surface-variant hover:text-on-surface transition-colors"
+                  className="flex items-center gap-2 label-caps text-on-surface-variant hover:text-on-surface transition-colors"
                 >
-                  View Rooms
-                  <span className="inline-block">→</span>
+                  View Rooms <span>→</span>
                 </Link>
               </motion.div>
             </motion.div>
           </div>
-
-          <div className="absolute bottom-10 left-5 sm:left-10 lg:left-page right-0 hairline-b" />
         </motion.div>
 
-        {/* Right — Dubai aerial hero image */}
+        {/* Right — Dubai aerial */}
         <motion.div
           variants={scaleIn}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-7/12 relative min-h-[60vw] md:min-h-screen"
+          className="w-full md:w-7/12 relative min-h-[70vw] sm:min-h-[55vw] md:min-h-screen"
         >
           <ParallaxImage
             src="/images/dubai-hero.jpg"
@@ -134,12 +156,11 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-on-surface/8" />
 
-          {/* Glassmorphic location tag */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6, ease: EASE_OUT_EXPO }}
-            className="absolute bottom-10 right-8 glass border border-on-surface/10 px-5 py-4"
+            className="absolute bottom-6 right-5 sm:bottom-10 sm:right-8 glass border border-on-surface/10 px-4 py-3 sm:px-5 sm:py-4"
           >
             <span className="label-caps text-[9px] text-on-surface-variant block mb-1">Location</span>
             <span className="font-sans text-sm font-semibold text-on-surface tracking-wide">Al Quoz, Dubai, UAE</span>
@@ -158,8 +179,8 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-page">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-on-surface/8">
             {metrics.map(({ value, label }) => (
-              <motion.div key={value} variants={fadeUp} className="py-10 px-6 text-center">
-                <p className="font-serif text-4xl sm:text-5xl text-on-surface tracking-tight">{value}</p>
+              <motion.div key={value} variants={fadeUp} className="py-8 sm:py-10 px-4 sm:px-6 text-center">
+                <p className="font-serif text-3xl sm:text-4xl lg:text-5xl text-on-surface tracking-tight">{value}</p>
                 <p className="label-caps text-on-surface-variant mt-2">{label}</p>
               </motion.div>
             ))}
@@ -168,10 +189,10 @@ export default function Home() {
       </motion.section>
 
       {/* ══ EDITORIAL INTRO ═════════════════════════════════════ */}
-      <section className="bg-surface py-section px-5 sm:px-10 lg:px-page">
+      <section className="bg-surface py-16 sm:py-section px-5 sm:px-10 lg:px-page">
         <div className="mx-auto max-w-[1440px] grid grid-cols-12 gap-gutter items-center">
 
-          <div className="col-span-12 md:col-span-4 space-y-7">
+          <div className="col-span-12 md:col-span-4 space-y-7 mb-10 md:mb-0">
             <FadeUp>
               <h2 className="font-serif text-headline-lg text-on-surface">
                 The Standard for Staff Accommodation
@@ -217,7 +238,7 @@ export default function Home() {
                 </motion.div>
                 <p className="label-caps text-on-surface-variant">Clean Interiors</p>
               </motion.div>
-              <motion.div variants={scaleIn} className="space-y-3 mt-12 sm:mt-20">
+              <motion.div variants={scaleIn} className="space-y-3 mt-10 sm:mt-20">
                 <motion.div
                   className="relative aspect-[3/4] overflow-hidden"
                   whileHover={{ scale: 1.02, transition: { duration: 0.4 } }}
@@ -238,10 +259,10 @@ export default function Home() {
       </section>
 
       {/* ══ ADVANTAGES GRID ══════════════════════════════════════ */}
-      <section className="bg-surface-container-low py-section px-5 sm:px-10 lg:px-page">
+      <section className="bg-surface-container-low py-16 sm:py-section px-5 sm:px-10 lg:px-page">
         <div className="mx-auto max-w-[1440px]">
 
-          <FadeUp className="mb-16 hairline-b pb-12">
+          <FadeUp className="mb-12 sm:mb-16 hairline-b pb-10 sm:pb-12">
             <span className="label-caps text-gold block mb-4">Why AMR Properties</span>
             <h2 className="font-serif text-headline-lg text-on-surface max-w-xl">
               Six Reasons Contractors Choose Us First
@@ -253,22 +274,36 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-14 md:gap-y-20"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-on-surface/8"
           >
             {advantages.map((a) => (
-              <motion.div key={a.n} variants={fadeUp} className="space-y-5 group">
-                <div className="flex items-center gap-4">
-                  <span className="label-caps text-on-surface-variant">{a.n}</span>
-                  <motion.div
-                    className="h-px flex-1 bg-on-surface/8 origin-left"
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.1 }}
+              <motion.div key={a.n} variants={fadeUp} className="bg-surface-container-low group">
+                {/* Photo */}
+                <div className="relative overflow-hidden aspect-[16/9]">
+                  <Image
+                    src={a.image}
+                    alt={a.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-on-surface/25 to-transparent" />
                 </div>
-                <h3 className="font-serif text-headline-md text-on-surface">{a.title}</h3>
-                <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">{a.body}</p>
+                {/* Text */}
+                <div className="p-6 sm:p-8 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <span className="label-caps text-on-surface-variant">{a.n}</span>
+                    <motion.div
+                      className="h-px flex-1 bg-on-surface/8 origin-left"
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.1 }}
+                    />
+                  </div>
+                  <h3 className="font-serif text-headline-md text-on-surface">{a.title}</h3>
+                  <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">{a.body}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -276,10 +311,10 @@ export default function Home() {
       </section>
 
       {/* ══ DATA BENTO ═══════════════════════════════════════════ */}
-      <section className="bg-surface py-section px-5 sm:px-10 lg:px-page">
+      <section className="bg-surface py-16 sm:py-section px-5 sm:px-10 lg:px-page">
         <div className="mx-auto max-w-[1440px] grid grid-cols-12 gap-gutter items-center">
 
-          <div className="col-span-12 lg:col-span-5 space-y-12">
+          <div className="col-span-12 lg:col-span-5 space-y-10 mb-10 lg:mb-0">
             <FadeUp>
               <span className="label-caps text-gold block mb-4">Occupancy & Compliance</span>
               <h2 className="font-serif text-headline-lg text-on-surface mb-6">Built to Perform, Built to Last</h2>
@@ -290,8 +325,8 @@ export default function Home() {
             <FadeUp delay={0.12}>
               <div className="space-y-6">
                 {[
-                  { label: 'Average Occupancy Rate',   value: '94%+' },
-                  { label: 'MOHRE Compliance Score',    value: '100%' },
+                  { label: 'Average Occupancy Rate', value: '94%+' },
+                  { label: 'MOHRE Compliance Score',  value: '100%' },
                 ].map(({ label, value }) => (
                   <div key={label} className="flex justify-between items-end hairline-b pb-4">
                     <span className="label-caps text-on-surface-variant">{label}</span>
@@ -302,16 +337,16 @@ export default function Home() {
             </FadeUp>
           </div>
 
-          <FadeUp delay={0.15} className="col-span-12 lg:col-span-6 lg:col-start-7 mt-10 lg:mt-0">
+          <FadeUp delay={0.15} className="col-span-12 lg:col-span-6 lg:col-start-7">
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {/* Bar chart card */}
+              {/* Bar chart */}
               <motion.div
-                className="col-span-2 border border-on-surface/8 bg-surface-container-low p-6 sm:p-8"
+                className="col-span-2 border border-on-surface/8 bg-surface-container-low p-5 sm:p-8"
                 whileHover={{ boxShadow: '0 8px 32px rgba(0,0,0,0.06)' }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="flex justify-between items-start mb-8">
-                  <span className="label-caps text-on-surface-variant">Beds Across Compound — Growth</span>
+                <div className="flex justify-between items-start mb-6 sm:mb-8">
+                  <span className="label-caps text-on-surface-variant text-[10px] sm:text-[11px]">Beds Across Compound — Growth</span>
                   <span className="text-on-surface">↗</span>
                 </div>
                 <motion.div
@@ -319,12 +354,12 @@ export default function Home() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
-                  className="h-32 sm:h-40 flex items-end gap-1.5 sm:gap-2"
+                  className="h-28 sm:h-40 flex items-end gap-1.5 sm:gap-2"
                 >
                   {[40, 55, 65, 78, 88, 100].map((h, i) => (
                     <motion.div
                       key={i}
-                      className={`w-full rounded-sm ${i === 5 ? 'bg-on-surface' : 'bg-surface-container-highest'}`}
+                      className={`w-full rounded-sm ${i === 5 ? 'bg-on-surface' : 'bg-on-surface/15'}`}
                       initial={{ height: 0, opacity: 0 }}
                       whileInView={{ height: `${h}%`, opacity: 1 }}
                       viewport={{ once: true }}
@@ -332,33 +367,33 @@ export default function Home() {
                     />
                   ))}
                 </motion.div>
-                <div className="flex justify-between mt-3 label-caps text-[9px] text-on-surface-variant">
+                <div className="flex justify-between mt-3 label-caps text-[8px] sm:text-[9px] text-on-surface-variant">
                   {['2019','2020','2021','2022','2023','2024'].map(y => <span key={y}>{y}</span>)}
                 </div>
               </motion.div>
 
-              {/* Stat — Room types */}
+              {/* Room types */}
               <motion.div
-                className="border border-on-surface/8 bg-surface-container-low p-6 flex flex-col justify-between aspect-square"
+                className="border border-on-surface/8 bg-surface-container-low p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:aspect-square"
                 whileHover={{ translateY: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.07)' }}
                 transition={{ duration: 0.3 }}
               >
                 <span className="label-caps text-on-surface-variant">Room Types</span>
                 <div>
-                  <div className="font-serif text-headline-md text-on-surface mb-1">2–5 Bed</div>
+                  <div className="font-serif text-2xl sm:text-headline-md text-on-surface mb-1">2–5 Bed</div>
                   <p className="label-caps text-[9px] text-on-surface-variant">Configurations</p>
                 </div>
               </motion.div>
 
-              {/* Dark stat — 24/7 */}
+              {/* 24/7 dark */}
               <motion.div
-                className="border border-on-surface/8 bg-on-surface p-6 flex flex-col justify-between aspect-square"
+                className="border border-on-surface/8 bg-on-surface p-5 sm:p-6 flex flex-col justify-between min-h-[140px] sm:aspect-square"
                 whileHover={{ translateY: -4, boxShadow: '0 12px 40px rgba(0,0,0,0.15)' }}
                 transition={{ duration: 0.3 }}
               >
                 <span className="label-caps text-surface/60">Security</span>
                 <div>
-                  <div className="font-serif text-headline-md text-surface mb-1">24/7</div>
+                  <div className="font-serif text-2xl sm:text-headline-md text-surface mb-1">24/7</div>
                   <p className="label-caps text-[9px] text-surface/60">On-Site Coverage</p>
                 </div>
               </motion.div>
@@ -367,11 +402,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ NARRATIVE — lifestyle ════════════════════════════════ */}
-      <section className="bg-surface-container-low py-section px-5 sm:px-10 lg:px-page">
+      {/* ══ NARRATIVE ═══════════════════════════════════════════ */}
+      <section className="bg-surface-container-low py-16 sm:py-section px-5 sm:px-10 lg:px-page">
         <div className="mx-auto max-w-[1440px] grid grid-cols-12 gap-gutter items-center">
 
-          <div className="col-span-12 md:col-span-5 order-2 md:order-1">
+          <div className="col-span-12 md:col-span-5 order-2 md:order-1 mt-10 md:mt-0">
             <FadeUp direction="scale">
               <motion.div
                 className="relative aspect-[3/4] overflow-hidden"
@@ -388,7 +423,7 @@ export default function Home() {
             </FadeUp>
           </div>
 
-          <div className="col-span-12 md:col-span-6 md:col-start-7 order-1 md:order-2 mb-10 md:mb-0">
+          <div className="col-span-12 md:col-span-6 md:col-start-7 order-1 md:order-2">
             <FadeUp>
               <span className="label-caps text-gold block mb-6">The Compound</span>
               <h2 className="font-serif text-headline-lg text-on-surface mb-8">
@@ -415,9 +450,11 @@ export default function Home() {
       </section>
 
       {/* ══ PHOTO MONTAGE ════════════════════════════════════════ */}
-      <section className="px-5 sm:px-10 lg:px-page py-section bg-surface">
-        <div className="mx-auto max-w-[1440px] grid grid-cols-12 gap-gutter h-[380px] sm:h-[520px] lg:h-[640px]">
-          <FadeUp direction="scale" className="col-span-8 relative overflow-hidden">
+      <section className="px-5 sm:px-10 lg:px-page py-16 sm:py-section bg-surface">
+        <div className="mx-auto max-w-[1440px] grid grid-cols-1 md:grid-cols-12 gap-gutter md:h-[520px] lg:h-[640px]">
+
+          {/* Main large photo */}
+          <FadeUp direction="scale" className="md:col-span-8 relative overflow-hidden h-[260px] sm:h-[340px] md:h-full">
             <motion.div
               className="absolute inset-0"
               whileHover={{ scale: 1.02, transition: { duration: 0.6 } }}
@@ -427,12 +464,15 @@ export default function Home() {
                 alt="AMR Properties catering kitchen"
                 className="absolute inset-0 w-full h-full"
                 strength={0.07}
-                sizes="(max-width: 1024px) 66vw, 800px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 66vw, 800px"
               />
             </motion.div>
           </FadeUp>
-          <div className="col-span-4 flex flex-col gap-gutter h-full">
-            <FadeUp direction="scale" delay={0.12} className="relative flex-1 overflow-hidden">
+
+          {/* Right column */}
+          <div className="md:col-span-4 flex flex-col gap-gutter md:h-full">
+
+            <FadeUp direction="scale" delay={0.12} className="relative overflow-hidden h-[200px] sm:h-[260px] md:flex-1">
               <motion.div
                 className="absolute inset-0"
                 whileHover={{ scale: 1.03, transition: { duration: 0.6 } }}
@@ -442,13 +482,14 @@ export default function Home() {
                   alt="AMR Properties dining hall"
                   className="absolute inset-0 w-full h-full"
                   strength={0.07}
-                  sizes="(max-width: 1024px) 33vw, 400px"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 33vw, 400px"
                 />
               </motion.div>
             </FadeUp>
-            <FadeUp delay={0.2} className="flex-1 bg-surface-container-low border border-on-surface/8 flex flex-col justify-center p-6 sm:p-8 lg:p-10 space-y-4">
+
+            <FadeUp delay={0.2} className="md:flex-1 bg-surface-container-low border border-on-surface/8 flex flex-col justify-center p-6 sm:p-8 lg:p-10 space-y-4">
               <h4 className="font-serif text-headline-md text-on-surface">World-Class Facilities</h4>
-              <p className="font-sans text-body-md text-on-surface-variant leading-relaxed hidden sm:block">
+              <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">
                 Catering, security, store, CCTV — everything on compound.
               </p>
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
@@ -462,8 +503,7 @@ export default function Home() {
       </section>
 
       {/* ══ CTA BANNER ═══════════════════════════════════════════ */}
-      <section className="bg-on-surface py-section px-5 sm:px-10 lg:px-page overflow-hidden relative">
-        {/* Subtle background parallax */}
+      <section className="bg-on-surface py-16 sm:py-section px-5 sm:px-10 lg:px-page overflow-hidden relative">
         <div className="absolute inset-0 opacity-[0.04]">
           <ParallaxImage
             src="/images/dubai-hero.jpg"
@@ -475,18 +515,18 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-[1440px]">
           <FadeUp>
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 sm:gap-10">
               <div className="max-w-xl">
                 <span className="label-caps text-gold block mb-5">Get in Touch</span>
                 <h2 className="font-serif text-headline-lg text-surface leading-[1.15]">
                   Looking for accommodation for your workforce?
                 </h2>
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
+              <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0 w-full sm:w-auto">
                 <motion.a
                   href="https://wa.me/97165542201"
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-[#25D366] px-8 py-4 label-caps text-surface"
+                  className="inline-flex items-center justify-center gap-3 bg-[#25D366] px-7 py-4 label-caps text-surface"
                   whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(37,211,102,0.35)' }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.22, ease: EASE_OUT_EXPO }}
@@ -500,10 +540,11 @@ export default function Home() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.22, ease: EASE_OUT_EXPO }}
+                  className="w-full sm:w-auto"
                 >
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 border border-surface/25 px-8 py-4 label-caps text-surface hover:bg-surface/10 transition-colors"
+                    className="flex items-center justify-center gap-2 border border-surface/25 px-7 py-4 label-caps text-surface hover:bg-surface/10 transition-colors"
                   >
                     Send an Enquiry →
                   </Link>
