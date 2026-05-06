@@ -76,6 +76,19 @@ export default function Home() {
       {/* ══ HERO ════════════════════════════════════════════════ */}
       <section className="min-h-screen flex flex-col md:flex-row pt-20 overflow-hidden">
 
+        {/* Mobile-only: full-bleed background image */}
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/images/dubai-hero.jpg"
+            alt="Aerial view of Dubai"
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-on-surface/55" />
+        </div>
+
         {/* Left — text */}
         <motion.div
           variants={staggerContainer}
@@ -83,11 +96,15 @@ export default function Home() {
           animate="visible"
           className="w-full md:w-5/12 flex flex-col justify-center
                      px-5 sm:px-10 lg:px-page
-                     py-12 sm:py-20 bg-surface relative z-10"
+                     py-24 sm:py-28 relative z-10
+                     bg-transparent md:bg-surface"
         >
           <div className="max-w-lg space-y-8">
             <motion.div variants={fadeUp} className="overflow-hidden">
-              <motion.span className="label-caps text-on-surface-variant block" variants={fadeUp}>
+              <motion.span
+                className="label-caps block text-surface/70 md:text-on-surface-variant"
+                variants={fadeUp}
+              >
                 Al Quoz, Dubai — Est. 2018
               </motion.span>
             </motion.div>
@@ -97,7 +114,7 @@ export default function Home() {
                 <div key={line} className="overflow-hidden">
                   <motion.h1
                     variants={fadeUp}
-                    className="font-serif text-display-xl text-on-surface leading-[1.08]"
+                    className="font-serif text-display-xl leading-[1.08] text-surface md:text-on-surface"
                   >
                     {line}
                   </motion.h1>
@@ -107,12 +124,12 @@ export default function Home() {
 
             <motion.div
               variants={lineReveal}
-              className="h-px bg-on-surface/12 w-full origin-left"
+              className="h-px bg-surface/30 md:bg-on-surface/12 w-full origin-left"
             />
 
             <motion.p
               variants={fadeUp}
-              className="font-sans text-body-lg text-on-surface-variant leading-relaxed max-w-sm"
+              className="font-sans text-body-lg leading-relaxed max-w-sm text-surface/80 md:text-on-surface-variant"
             >
               MOHRE-compliant staff accommodation and labour camps for Dubai&apos;s leading contractors. 3,390 beds, full facilities, 24/7 support.
             </motion.p>
@@ -121,8 +138,8 @@ export default function Home() {
               <motion.div whileHover={btnHover} whileTap={btnTap}>
                 <Link
                   href="/contact"
-                  className="bg-on-surface text-surface px-8 sm:px-10 py-4 label-caps hover:opacity-85 inline-block transition-opacity"
-                  style={{ boxShadow: '0 4px 24px rgba(27,28,28,0.12)' }}
+                  className="bg-surface text-on-surface md:bg-on-surface md:text-surface px-8 sm:px-10 py-4 label-caps hover:opacity-85 inline-block transition-opacity"
+                  style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }}
                 >
                   Get a Quote
                 </Link>
@@ -130,7 +147,7 @@ export default function Home() {
               <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
                 <Link
                   href="/rooms"
-                  className="flex items-center gap-2 label-caps text-on-surface-variant hover:text-on-surface transition-colors"
+                  className="flex items-center gap-2 label-caps text-surface/70 md:text-on-surface-variant hover:text-surface md:hover:text-on-surface transition-colors"
                 >
                   View Rooms <span>→</span>
                 </Link>
@@ -139,12 +156,12 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Right — Dubai aerial */}
+        {/* Right — Dubai aerial (desktop only) */}
         <motion.div
           variants={scaleIn}
           initial="hidden"
           animate="visible"
-          className="w-full md:w-7/12 relative min-h-[70vw] sm:min-h-[55vw] md:min-h-screen"
+          className="hidden md:block md:w-7/12 relative md:min-h-screen"
         >
           <ParallaxImage
             src="/images/dubai-hero.jpg"
@@ -152,7 +169,7 @@ export default function Home() {
             className="absolute inset-0 w-full h-full"
             strength={0.08}
             priority
-            sizes="(max-width: 768px) 100vw, 58vw"
+            sizes="58vw"
           />
           <div className="absolute inset-0 bg-on-surface/8" />
 
@@ -160,7 +177,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6, ease: EASE_OUT_EXPO }}
-            className="absolute bottom-6 right-5 sm:bottom-10 sm:right-8 glass border border-on-surface/10 px-4 py-3 sm:px-5 sm:py-4"
+            className="absolute bottom-10 right-8 glass border border-on-surface/10 px-5 py-4"
           >
             <span className="label-caps text-[9px] text-on-surface-variant block mb-1">Location</span>
             <span className="font-sans text-sm font-semibold text-on-surface tracking-wide">Al Quoz, Dubai, UAE</span>
