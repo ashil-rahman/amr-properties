@@ -35,29 +35,29 @@ const advantages = [
     n: '03',
     title: 'Stable Occupancy',
     body: 'A 94%+ average occupancy rate across six years reflects the trust contractors place in us.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-    alt: 'Industrial compound and surroundings',
+    image: '/images/workforce.jpg',
+    alt: 'Construction workforce ready for site',
   },
   {
     n: '04',
     title: 'Flexible Configurations',
     body: 'Room types from 2 to 5 beds let you scale headcount without renegotiating long-term contracts.',
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=800&q=80',
-    alt: 'Clean accommodation room with beds',
+    image: '/images/room-config.jpg',
+    alt: 'Labour camp room with bunk bed configurations',
   },
   {
     n: '05',
     title: '24/7 Support',
     body: 'On-site management, security, and maintenance around the clock — your HR desk stays clear.',
-    image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80',
-    alt: 'Customer support agent on call',
+    image: '/images/support-team.jpg',
+    alt: 'AMR Properties support team on call',
   },
   {
     n: '06',
     title: 'Full-Service Compound',
     body: 'Catering, store, saloon, CCTV — every essential on-site, keeping your workforce focused.',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
-    alt: 'Professional cafeteria and dining facilities',
+    image: '/images/compound-view.jpg',
+    alt: 'AMR Properties compound interior view',
   },
 ]
 
@@ -100,7 +100,7 @@ export default function Home() {
         {/* Mobile-only: full-bleed background image */}
         <div className="absolute inset-0 md:hidden">
           <Image
-            src="/images/dubai-hero.jpg"
+            src="/images/dubai-skyline.jpg"
             alt="Aerial view of Dubai"
             fill
             priority
@@ -176,7 +176,7 @@ export default function Home() {
           className="hidden md:block md:w-7/12 relative md:min-h-screen"
         >
           <ParallaxImage
-            src="/images/dubai-hero.jpg"
+            src="/images/dubai-skyline.jpg"
             alt="Aerial view of Dubai — Burj Al Arab and Palm Jumeirah"
             className="absolute inset-0 w-full h-full"
             strength={0.08}
@@ -585,7 +585,7 @@ export default function Home() {
       <section className="bg-on-surface py-16 sm:py-section px-5 sm:px-10 lg:px-page overflow-hidden relative">
         <div className="absolute inset-0 opacity-[0.04]">
           <ParallaxImage
-            src="/images/dubai-hero.jpg"
+            src="/images/dubai-skyline.jpg"
             alt=""
             className="absolute inset-0 w-full h-full"
             strength={0.05}
