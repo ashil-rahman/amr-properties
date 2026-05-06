@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import FadeUp from '@/components/FadeUp'
 import ParallaxImage from '@/components/ParallaxImage'
@@ -34,8 +35,8 @@ const advantages = [
     n: '03',
     title: 'Stable Occupancy',
     body: 'A 94%+ average occupancy rate across six years reflects the trust contractors place in us.',
-    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
-    alt: 'Occupied residential building exterior',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+    alt: 'Industrial compound and surroundings',
   },
   {
     n: '04',
@@ -48,8 +49,8 @@ const advantages = [
     n: '05',
     title: '24/7 Support',
     body: 'On-site management, security, and maintenance around the clock — your HR desk stays clear.',
-    image: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=800&q=80',
-    alt: 'Security and support personnel on duty',
+    image: 'https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&w=800&q=80',
+    alt: 'Customer support agent on call',
   },
   {
     n: '06',
@@ -71,6 +72,26 @@ const btnHover = { scale: 1.04, transition: { duration: 0.22, ease: EASE_OUT_EXP
 const btnTap   = { scale: 0.97 }
 
 export default function Home() {
+  /* ── Advantages carousel state ── */
+  const [advIdx, setAdvIdx]   = useState(0)
+  const [cardW,  setCardW]    = useState(0)
+  const containerRef          = useRef<HTMLDivElement>(null)
+
+  const advNext = useCallback(() => setAdvIdx(i => (i + 1) % advantages.length), [])
+  const advPrev = useCallback(() => setAdvIdx(i => (i - 1 + advantages.length) % advantages.length), [])
+
+  useEffect(() => {
+    const measure = () => { if (containerRef.current) setCardW(containerRef.current.offsetWidth) }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
+  useEffect(() => {
+    const t = setInterval(advNext, 5500)
+    return () => clearInterval(t)
+  }, [advNext])
+
   return (
     <>
       {/* ══ HERO ════════════════════════════════════════════════ */}
@@ -275,55 +296,105 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ ADVANTAGES GRID ══════════════════════════════════════ */}
+      {/* ══ ADVANTAGES CAROUSEL ══════════════════════════════════ */}
       <section className="bg-surface-container-low py-16 sm:py-section px-5 sm:px-10 lg:px-page">
         <div className="mx-auto max-w-[1440px]">
 
+          {/* Header + controls */}
           <FadeUp className="mb-12 sm:mb-16 hairline-b pb-10 sm:pb-12">
-            <span className="label-caps text-gold block mb-4">Why AMR Properties</span>
-            <h2 className="font-serif text-headline-lg text-on-surface max-w-xl">
-              Six Reasons Contractors Choose Us First
-            </h2>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
+              <div>
+                <span className="label-caps text-gold block mb-4">Why AMR Properties</span>
+                <h2 className="font-serif text-headline-lg text-on-surface max-w-xl">
+                  Six Reasons Contractors Choose Us First
+                </h2>
+              </div>
+              <div className="flex items-center gap-3 flex-shrink-0">
+                <button
+                  onClick={advPrev}
+                  className="h-11 w-11 border border-on-surface/20 flex items-center justify-center text-on-surface hover:bg-on-surface hover:text-surface transition-all duration-200"
+                  aria-label="Previous reason"
+                >
+                  ←
+                </button>
+                <span className="label-caps text-on-surface-variant tabular-nums text-sm w-16 text-center">
+                  {String(advIdx + 1).padStart(2, '0')} / {String(advantages.length).padStart(2, '0')}
+                </span>
+                <button
+                  onClick={advNext}
+                  className="h-11 w-11 border border-on-surface/20 flex items-center justify-center text-on-surface hover:bg-on-surface hover:text-surface transition-all duration-200"
+                  aria-label="Next reason"
+                >
+                  →
+                </button>
+              </div>
+            </div>
           </FadeUp>
 
-          <motion.div
-            variants={staggerGrid}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-60px' }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-on-surface/8"
-          >
-            {advantages.map((a) => (
-              <motion.div key={a.n} variants={fadeUp} className="bg-surface-container-low group">
-                {/* Photo */}
-                <div className="relative overflow-hidden aspect-[16/9]">
-                  <Image
-                    src={a.image}
-                    alt={a.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-on-surface/25 to-transparent" />
-                </div>
-                {/* Text */}
-                <div className="p-6 sm:p-8 space-y-4">
-                  <div className="flex items-center gap-4">
-                    <span className="label-caps text-on-surface-variant">{a.n}</span>
-                    <motion.div
-                      className="h-px flex-1 bg-on-surface/8 origin-left"
-                      initial={{ scaleX: 0 }}
-                      whileInView={{ scaleX: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.7, ease: EASE_OUT_EXPO, delay: 0.1 }}
-                    />
+          {/* Carousel track */}
+          <div ref={containerRef} className="overflow-hidden">
+            <motion.div
+              className="flex"
+              animate={{ x: cardW ? -advIdx * cardW : 0 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 32, mass: 0.8 }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.12}
+              onDragEnd={(_, info) => {
+                if (info.offset.x < -60) advNext()
+                else if (info.offset.x > 60) advPrev()
+              }}
+            >
+              {advantages.map((a) => (
+                <div key={a.n} className="min-w-full">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center">
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={a.image}
+                        alt={a.alt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-on-surface/20 to-transparent" />
+                    </div>
+                    {/* Text */}
+                    <div className="py-2 md:py-8 space-y-6">
+                      <div className="flex items-center gap-4">
+                        <span className="label-caps text-on-surface-variant">{a.n}</span>
+                        <div className="h-px flex-1 bg-on-surface/10" />
+                      </div>
+                      <h3 className="font-serif text-headline-lg text-on-surface">{a.title}</h3>
+                      <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed">{a.body}</p>
+                      <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.2 }}>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-2 label-caps text-on-surface border-b border-on-surface pb-0.5 hover:opacity-60 transition-opacity"
+                        >
+                          Learn More →
+                        </Link>
+                      </motion.div>
+                    </div>
                   </div>
-                  <h3 className="font-serif text-headline-md text-on-surface">{a.title}</h3>
-                  <p className="font-sans text-body-md text-on-surface-variant leading-relaxed">{a.body}</p>
                 </div>
-              </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Progress indicators */}
+          <div className="flex items-center gap-2 mt-10">
+            {advantages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setAdvIdx(i)}
+                className={`h-[2px] rounded-full transition-all duration-400 ${
+                  i === advIdx ? 'w-10 bg-on-surface' : 'w-4 bg-on-surface/20 hover:bg-on-surface/40'
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
