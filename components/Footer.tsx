@@ -13,7 +13,7 @@ export default function Footer() {
               <p className="label-caps text-[9px] tracking-[0.22em] text-on-surface-variant mt-0.5">Properties</p>
             </div>
             <p className="font-sans text-body-md text-on-surface-variant max-w-sm leading-relaxed">
-              Dubai&apos;s trusted provider of MOHRE-compliant, dignified workforce accommodation in Al Quoz. Serving contractors since 2018.
+              Dubai&apos;s trusted provider of MOHRE-compliant workforce accommodation. Compounds across Al Quoz, Jebel Ali, Sonapur, DIP 1 & DIP 2. Serving contractors since 2018.
             </p>
             <div className="flex gap-4 pt-2">
               {['in', 'fb', 'ig'].map(s => (
@@ -42,7 +42,7 @@ export default function Footer() {
             <ul className="space-y-3 font-sans text-body-md text-on-surface-variant">
               <li><a href="tel:+97165542201"         className="hover:text-on-surface transition-colors">+971 6 554 2201</a></li>
               <li><a href="mailto:info@amrproperties.ae" className="hover:text-on-surface transition-colors">info@amrproperties.ae</a></li>
-              <li>Al Quoz, Dubai, UAE</li>
+              <li>Office: Al Quoz, Dubai, UAE</li>
               <li>amrproperties.ae</li>
             </ul>
           </div>
@@ -68,7 +68,7 @@ export default function Footer() {
             © {new Date().getFullYear()} AMR Properties. All rights reserved.
           </p>
           <p className="label-caps text-[9px] text-on-surface-variant">
-            Al Quoz, Dubai, UAE · MOHRE Compliant
+            Dubai, UAE · Al Quoz · Jebel Ali · Sonapur · DIP · MOHRE Compliant
           </p>
         </div>
       </div>

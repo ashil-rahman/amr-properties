@@ -40,7 +40,7 @@ export default function AboutPage() {
                   Founded in 2018, AMR Properties was established with a single mission: to provide Dubai&apos;s construction and industrial workforce with accommodation they could be proud of — safe, clean, and fully compliant with UAE regulations.
                 </p>
                 <p>
-                  Located in the heart of Al Quoz, our facilities were purpose-built to serve large-scale contractors who require reliable, scalable housing solutions. We understand the pressures of project-based staffing, which is why our flexible room configurations and swift onboarding process set us apart.
+                  With compounds across Al Quoz, Jebel Ali, Jebel Ali Industrial, Sonapur, DIP 1, and DIP 2, our facilities are purpose-built to serve large-scale contractors across Dubai and beyond. We understand the pressures of project-based staffing, which is why our flexible room configurations and swift onboarding process set us apart.
                 </p>
                 <p>
                   Today, AMR Properties manages over 3,390 beds, serving 47+ corporate clients ranging from mid-sized contractors to some of Dubai&apos;s largest infrastructure groups. We remain family-run, hands-on, and deeply committed to the communities we serve.
@@ -59,7 +59,7 @@ export default function AboutPage() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
-              <p className="label-caps text-on-surface-variant mt-4">AMR Properties, Al Quoz Compound</p>
+              <p className="label-caps text-on-surface-variant mt-4">AMR Properties — Head Office, Al Quoz, Dubai</p>
             </FadeUp>
           </div>
         </div>

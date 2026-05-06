@@ -12,7 +12,8 @@ const CONTACTS = [
   { label: 'Phone',    value: '+971 6 554 2201',       href: 'tel:+97165542201' },
   { label: 'WhatsApp', value: '+971 6 554 2201',       href: 'https://wa.me/97165542201' },
   { label: 'Email',    value: 'info@amrproperties.ae', href: 'mailto:info@amrproperties.ae' },
-  { label: 'Address',  value: 'Al Quoz, Dubai, UAE',   href: undefined },
+  { label: 'Head Office', value: 'Al Quoz, Dubai, UAE', href: undefined },
+  { label: 'Locations',   value: 'Al Quoz · Jebel Ali · Jebel Ali Industrial · Sonapur · DIP 1 · DIP 2', href: undefined },
 ]
 
 const inputBase =

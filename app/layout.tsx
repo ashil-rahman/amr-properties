@@ -23,11 +23,11 @@ const sans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title:       'AMR Properties | Staff Accommodation & Labour Camps – Dubai',
-  description: "Dubai's most trusted MOHRE-compliant workforce accommodation. 3,390 beds, 24/7 security, full facilities in Al Quoz.",
-  keywords:    'staff accommodation Dubai, labour camp Al Quoz, MOHRE compliant, workforce housing UAE',
+  description: "Dubai's most trusted MOHRE-compliant workforce accommodation. 3,390 beds across Al Quoz, Jebel Ali, Sonapur, DIP 1 & DIP 2.",
+  keywords:    'staff accommodation Dubai, labour camp Jebel Ali, Sonapur accommodation, DIP staff housing, MOHRE compliant, workforce housing UAE',
   openGraph: {
     title:       'AMR Properties | Staff Accommodation Dubai',
-    description: 'MOHRE-compliant workforce accommodation in Al Quoz, Dubai.',
+    description: 'MOHRE-compliant workforce accommodation across Dubai — Al Quoz, Jebel Ali, Sonapur, DIP.',
     url:         'https://amrproperties.ae',
     siteName:    'AMR Properties',
     locale:      'en_AE',

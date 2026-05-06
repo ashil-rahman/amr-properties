@@ -20,7 +20,7 @@ const advantages = [
   {
     n: '01',
     title: 'Prime Location',
-    body: "Al Quoz — Dubai's industrial hub — with direct motorway access to every major project site.",
+    body: "Compounds across Al Quoz, Jebel Ali, Jebel Ali Industrial, Sonapur, DIP 1 & DIP 2 — close to every major project site in Dubai.",
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
     alt: 'Dubai cityscape aerial view',
   },
@@ -121,15 +121,6 @@ export default function Home() {
                      bg-transparent md:bg-surface"
         >
           <div className="max-w-lg space-y-8">
-            <motion.div variants={fadeUp} className="overflow-hidden">
-              <motion.span
-                className="label-caps block text-surface/70 md:text-on-surface-variant"
-                variants={fadeUp}
-              >
-                Al Quoz, Dubai — Est. 2018
-              </motion.span>
-            </motion.div>
-
             <motion.div variants={staggerContainer} className="space-y-2">
               {["Where Dubai's", 'Workforce', 'Calls Home'].map((line) => (
                 <div key={line} className="overflow-hidden">
@@ -200,8 +191,8 @@ export default function Home() {
             transition={{ delay: 0.9, duration: 0.6, ease: EASE_OUT_EXPO }}
             className="absolute bottom-10 right-8 glass border border-on-surface/10 px-5 py-4"
           >
-            <span className="label-caps text-[9px] text-on-surface-variant block mb-1">Location</span>
-            <span className="font-sans text-sm font-semibold text-on-surface tracking-wide">Al Quoz, Dubai, UAE</span>
+            <span className="label-caps text-[9px] text-on-surface-variant block mb-1">Locations</span>
+            <span className="font-sans text-sm font-semibold text-on-surface tracking-wide">Al Quoz · Jebel Ali · Sonapur · DIP</span>
           </motion.div>
         </motion.div>
       </section>
